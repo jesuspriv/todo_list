@@ -9,7 +9,7 @@ A full-featured task management app built with vanilla JavaScript and Webpack â€
 
 ## Live Demo
 
-[View Live Site](https://jesuspriv.github.io/todo_odin/)
+[View Live Site](https://jesuspriv.github.io/todo_list/)
 
 ## Description
 
@@ -50,7 +50,7 @@ todo-list/
 
 1. Clone the repository:
 ```
-git clone https://github.com/jesuspriv/todo_odin.git
+git clone https://github.com/jesuspriv/todo_list
 ```
 
 2. Install dependencies:
