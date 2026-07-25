@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-logo">✦ Tasks</span>
+        <button class="newProject btn-new-project">+ Proyecto</button>
+      </div>
+      <!-- proyectos se renderizan aquí dinámicamente -->
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-wrapper">
+      <header class="main-header">
+        <h1 class="project-title">Selecciona un proyecto</h1>
+        <button class="newTodo btn-new-todo">+ Nueva Tarea</button>
+      </header>
+      <div class="dashboard">
+        <div class="dash-card">
+            <span class="dash-number" id="total-tasks">0</span>
+            <span class="dash-label">Total</span>
+        </div>
+        <div class="dash-card">
+            <span class="dash-number" id="completed-tasks">0</span>
+            <span class="dash-label">Completadas</span>
+        </div>
+        <div class="dash-card">
+            <span class="dash-number" id="pending-tasks">0</span>
+            <span class="dash-label">Pendientes</span>
+        </div>
+        <div class="dash-card dash-progress">
+            <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <span class="dash-label" id="progress-label">0% completado</span>
+        </div>
+        </div>
+      <main></main>
+    </div>
+
+  </div>
+
+  <!--  Nuevo Todo -->
+  <dialog class="todo_dialog">
+    <form class="todo-form" method="dialog">
+      <h2>Nueva Tarea</h2>
+      <label>
+        Título
+        <input type="text" id="title" name="title" required placeholder="¿Qué necesitas hacer?" />
+      </label>
+      <label>
+        Descripción
+        <textarea name="description" id="description" placeholder="Detalles adicionales..."></textarea>
+      </label>
+      <label>
+        Fecha límite
+        <input type="date" id="date" name="dueDate" />
+      </label>
+      <label>
+        Prioridad
+        <select id="priority" name="priority">
+          <option value="baja">🟢 Baja</option>
+          <option value="media" selected>🟡 Media</option>
+          <option value="alta">🔴 Alta</option>
+        </select>
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Guardar</button>
+        <button type="button" class="cancel-button btn-secondary">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!--  Nuevo Proyecto -->
+  <dialog class="project_dialog">
+    <form class="project-form" method="dialog">
+      <h2>Nuevo Proyecto</h2>
+      <label>
+        Nombre
+        <input type="text" id="name" name="name" required placeholder="Nombre del proyecto" />
+      </label>
+      <label>
+        Descripción
+        <textarea name="description" id="description-project" placeholder="¿De qué trata este proyecto?"></textarea>
+      </label>
+      <label class="color-label">
+        Color
+        <input type="color" id="color" name="color" value="#6366f1" />
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Crear</button>
+        <button type="button" class="cancel-button btn-secondary">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!--  Editar Todo -->
+  <dialog class="editar-todo-dialog">
+    <form class="edit-form" method="dialog">
+      <h2>Editar Tarea</h2>
+      <label>
+        Título
+        <input type="text" id="edit-title" name="edit-title" required placeholder="Título de la tarea" />
+      </label>
+      <label>
+        Descripción
+        <textarea name="edit-description" id="edit-description" placeholder="Descripción..."></textarea>
+      </label>
+      <label>
+        Fecha límite
+        <input type="date" id="edit-date" name="edit-date" />
+      </label>
+      <label>
+        Prioridad
+        <select id="edit-priority" name="edit-priority">
+          <option value="baja">🟢 Baja</option>
+          <option value="media">🟡 Media</option>
+          <option value="alta">🔴 Alta</option>
+        </select>
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Guardar cambios</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- VISTA DIALOG-->
+   <dialog class="detail-todo-dialog">
+  <div class="detail-content">
+    <div class="detail-header">
+      <h2 class="detail-title"></h2>
+      <button class="cancel-button btn-secondary detail-close">✕</button>
+    </div>
+    <div class="detail-body">
+      <div class="detail-row">
+        <span class="detail-label">📅 Fecha límite</span>
+        <span class="detail-date"></span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">🎯 Prioridad</span>
+        <span class="detail-priority"></span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">✅ Estado</span>
+        <span class="detail-status"></span>
+      </div>
+      <div class="detail-row detail-description-row">
+        <span class="detail-label">📝 Descripción</span>
+        <p class="detail-description"></p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+</body>
+</html>
